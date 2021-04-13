@@ -40,7 +40,6 @@ def check_3(row, alpha, dispersion_check):
     result = ""
     N = len(row)
     mean = np.mean(row)
-    n_sqrt = np.sqrt(N)
     S = np.sqrt(np.mean(np.square(row - mean)))
     z1 = scipy.stats.poisson.ppf(1 - alpha / 2, N - 1)
     z2 = scipy.stats.poisson.ppf(alpha / 2, N - 1)
