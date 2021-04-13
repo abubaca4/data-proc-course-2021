@@ -4,7 +4,6 @@ import numpy as np
 import scipy.stats
 
 
-
 def make_row(N, mu, sigma2):
     row = np.random.normal(size=int(N), loc=mu, scale=sigma2 ** .5)
     return row
@@ -49,6 +48,7 @@ def check_3(row, alpha, dispersion_check):
     result += "z2 = {:.2f}".format(z2) + "\n"
 
     return (Z <= z1 and Z >= z2, result)
+
 
 num_row = []
 
@@ -107,15 +107,17 @@ layout = [
 
 window = sg.Window('Lab 3', layout)
 
-while True:                          
+while True:
     event, values = window.read()
     if event in (None, 'Exit', 'Cancel'):
         break
     if event == 'Сгенерировать выборку':
-        num_row = make_row(int(values["N"]), float(values["μ"]), float(values["σ²"]))
+        num_row = make_row(int(values["N"]), float(
+            values["μ"]), float(values["σ²"]))
         window["out_f"].update("\n".join(list(map(str, num_row[:10]))))
     if event == 'Проверить гипотезы':
-        window["out_a"].update(check_all(float(values["σ²"]), float(values["α"]), float(values["mu"]), float(values["dispersion"])))
+        window["out_a"].update(check_all(float(values["σ²"]), float(
+            values["α"]), float(values["mu"]), float(values["dispersion"])))
 
 
 window.close()
