@@ -8,7 +8,7 @@ To make env in windows use
 
 py -m venv env/
 
-To install/freeze packets use
+To freeze/install packets use
 
 pip freeze > requirements.txt
 
