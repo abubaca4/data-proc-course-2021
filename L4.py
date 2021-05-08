@@ -8,10 +8,6 @@ def generate_ints(n):
     return (result, np.array2string(result))
 
 
-def F(x):
-    return x
-
-
 def Dnp(x):
     return np.max([np.abs(i / len(x) - x[i - 1]) for i in range(1, len(x) + 1)])
 
